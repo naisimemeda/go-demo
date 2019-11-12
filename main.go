@@ -2,9 +2,9 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
+	"go-demo/route"
 	"log"
 	"net/http"
-	"go-demo/route"
 )
 
 func main() {

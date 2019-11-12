@@ -2,17 +2,14 @@ package route
 
 import (
 	"github.com/gin-gonic/gin"
-	"net/http"
+	"go-demo/App/Controller"
 )
 
 func Router() *gin.Engine {
 	router := gin.Default()
 	api := router.Group("/api")
 	{
-		api.GET("/hello", func(c *gin.Context) {
-			c.JSON(http.StatusOK, "hello")
-			return
-		})
+		api.GET("/user/list", Controller.UserList)
 	}
 	return router
 }
