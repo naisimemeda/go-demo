@@ -9,7 +9,9 @@ func Router() *gin.Engine {
 	router := gin.Default()
 	api := router.Group("/api")
 	{
-		api.GET("/user/list", Controller.UserList)
+		api.POST("/user/list", Controller.UserList)
 	}
 	return router
 }
+
+
