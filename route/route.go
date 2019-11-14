@@ -10,6 +10,7 @@ func Router() *gin.Engine {
 	api := router.Group("/api")
 	{
 		api.POST("/user/list", Controller.UserList)
+		api.POST("/post/list", Controller.PostList)
 	}
 	return router
 }

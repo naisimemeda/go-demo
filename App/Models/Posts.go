@@ -7,4 +7,5 @@ type Post struct {
 	Title     string       `json:"title"`
 	UserID    string       `json:"user_id"`
 	CreatedAt Api.JSONTime `json:"created_at"`
+	User      User
 }

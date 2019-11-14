@@ -13,7 +13,7 @@ func PostList(ctx *gin.Context) {
 	db := config.GetDB()
 
 	var post []Models.Post
-	db.Find(&post)
+	db.Preload("User").Find(&post)
 	ctx.JSON(http.StatusOK, Api.Success(post))
 	return
 }
