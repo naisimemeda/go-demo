@@ -11,7 +11,7 @@ import (
 func UserList(ctx *gin.Context) {
 	db := config.GetDB()
 	var user []Models.User
-	db.Preload("Post").Preload("Comment").Find(&user)
+	db.Preload("Post.Comment").Find(&user)
 	ctx.JSON(http.StatusOK, Api.Success(user))
 	return
 }

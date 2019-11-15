@@ -7,5 +7,4 @@ type User struct {
 	Name      string       `json:"name"`
 	CreatedAt Api.JSONTime `json:"created_at"`
 	Post      []Post
-	Comment   []Post
 }
