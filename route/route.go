@@ -11,6 +11,8 @@ func Router() *gin.Engine {
 	{
 		api.POST("/user/list", Controller.UserList)
 		api.POST("/post/list", Controller.PostList)
+		api.POST("/user/create", Controller.CreateUser)
+		api.POST("/user/update", Controller.UpdateUser)
 	}
 	return router
 }
