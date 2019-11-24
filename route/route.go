@@ -13,6 +13,7 @@ func Router() *gin.Engine {
 		api.POST("/post/list", Controller.PostList)
 		api.POST("/user/create", Controller.CreateUser)
 		api.POST("/user/update", Controller.UpdateUser)
+		api.POST("/user/delete", Controller.DeleteUser)
 	}
 	return router
 }

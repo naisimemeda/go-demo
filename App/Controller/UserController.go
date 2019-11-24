@@ -33,3 +33,12 @@ func UpdateUser(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, Api.Success(user))
 	return
 }
+
+func DeleteUser(ctx *gin.Context) {
+	db := config.GetDB()
+	var user Models.User
+	//db.Where("id = ?", 3).First(&user)
+	db.Where("name = ?", "xxx").Where("id = ?", 1).Delete(&user)
+	ctx.JSON(http.StatusOK, Api.Success(1))
+	return
+}
