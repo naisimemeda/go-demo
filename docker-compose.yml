@@ -1,0 +1,34 @@
+version: '3'
+services:
+  app:
+    image: golang:latest
+    volumes:
+      - $PWD:/app
+    ports:
+      - "8000:8080"
+    environment:
+      - GOPROXY=https://goproxy.cn,direct
+      - mysql_host=database
+      - mysql_port=${MYSQL_PORT}
+      - mysql_database=${MYSQL_DATABASE}
+      - mysql_user=${MYSQL_USER}
+      - mysql_password=${MYSQL_PASSWORD}
+    command:
+      - /bin/bash
+      - -c
+      - |
+        cd /app
+        go build
+        go run main.go
+    links:
+      - database:database
+
+
+  database:
+    image: mysql:8
+    command: --default-authentication-plugin=mysql_native_password
+    restart: "no"
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+    ports:
+      - 306:3306

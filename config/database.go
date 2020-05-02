@@ -4,6 +4,7 @@ import (
 	"github.com/jinzhu/gorm"
 	"log"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
+	"os"
 )
 
 // 数据库
@@ -19,11 +20,11 @@ type DataBase struct {
 
 func GetDatabaseConfig() (db DataBase) {
 	db.Connection = "mysql"
-	db.Host     = "127.0.0.1"
-	db.Port     = "3306"
-	db.DataBase = "go"
-	db.UserName = "root"
-	db.Password = "memedama"
+	db.Host     = os.Getenv("mysql_host")
+	db.Port     = os.Getenv("mysql_port")
+	db.DataBase = os.Getenv("mysql_database")
+	db.UserName = os.Getenv("mysql_user")
+	db.Password = os.Getenv("mysql_password")
 	return db
 }
 
